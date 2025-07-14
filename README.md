@@ -53,7 +53,7 @@ Per la colonna Rating, che è la variabile target (label) per la predizione, son
 La distribuzione dei rating è risultata essere più o meno uniforme e senza skewness.
 In contrasto, la colonna gross income (utile lordo) mostra una significativa skewness, con la maggioranza degli ordini che presentano un basso reddito lordo. Il valore esatto della skewness per gross income è 0.95.
 
-🛠️ Feature Engineering
+**🛠️ Feature Engineering**
 
 Per preparare i dati ai modelli di machine learning, sono state applicate le seguenti tecniche:
 1. Encoding delle Variabili Categoriche: Colonne come 'Branch', 'City', 'Customer type', 'Gender', 'Product line' e 'Payment' sono state trasformate da categoriche a numeriche utilizzando LabelEncoder. Questo è fondamentale poiché gli algoritmi di machine learning richiedono input numerici.
@@ -92,7 +92,7 @@ Il dataset pre-processato viene diviso in set di training (80%) e test (20%) per
     
 • Spiegazione del Peggioramento: L'aumento del grado del polinomio non ha portato a miglioramenti, anzi, le performance sono peggiorate. Questo suggerisce che la causa potrebbe essere l'overfitting dei dati, probabilmente dovuto a un dataset dimensionalmente limitato (con pochi dati), il che comporta una ridotta capacità di generalizzazione del modello. Non sono stati riscontrati outlier significativi che possano giustificare il peggioramento delle performance.
 
-🍎 Classificazione della Qualità delle Mele
+**🍎 Classificazione della Qualità delle Mele**
 
 Per un problema di classificazione, è stato introdotto un nuovo dataset: apple_quality.csv. L'obiettivo è classificare la qualità delle mele.
 
