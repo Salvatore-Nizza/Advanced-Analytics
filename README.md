@@ -60,10 +60,10 @@ Per preparare i dati ai modelli di machine learning, sono state applicate le seg
     ◦ Viene mostrata la mappatura dei valori originali ai valori codificati per ciascuna colonna.
 2. Feature Scaling (Standardizzazione): Le colonne 'Unit price' e 'gross income' sono state standardizzate utilizzando StandardScaler. Questa operazione aiuta a migliorare le performance dei modelli, specialmente per 'gross income' che presentava una forte skewness. La standardizzazione viene verificata controllando che la media delle colonne sia prossima a 0 e la deviazione standard a 1.
 
-🧪 Training e Valutazione dei Modelli di Regressione
+**🧪 Training e Valutazione dei Modelli di Regressione**
 
 Il dataset pre-processato viene diviso in set di training (80%) e test (20%) per la valutazione dei modelli di regressione, con Rating come variabile target.
-1. Regressione Lineare
+**1. Regressione Lineare**
 
 • Un modello di LinearRegression è stato addestrato per predire i Rating.
 
@@ -74,7 +74,7 @@ Il dataset pre-processato viene diviso in set di training (80%) e test (20%) per
     
 • Conclusione: L'R2-score estremamente basso indica che il modello lineare è peggiore rispetto a una semplice media dei valori, suggerendo che un modello lineare non cattura adeguatamente la relazione nei dati.
 
-4. Regressione Polinomiale
+**2. Regressione Polinomiale**
 
 • È stata tentata una PolynomialRegression per migliorare le performance, inizialmente con un grado del polinomio pari a 2.
 
@@ -102,8 +102,8 @@ Per un problema di classificazione, è stato introdotto un nuovo dataset: apple_
 
 3. Train/Test Split: Il dataset viene nuovamente diviso in training (80%) e test (20%).
 
-**1. Regressione Logistica
-**
+**1. Regressione Logistica**
+
 • Un modello LogisticRegression è stato addestrato per la classificazione della qualità delle mele.
 
 • Metrica Iniziale (F1-score): L'obiettivo è superare un F1-score di 0.80, massimizzando precision e recall.
@@ -118,8 +118,8 @@ Per un problema di classificazione, è stato introdotto un nuovo dataset: apple_
     ◦ Esempio di valori estratti: TP = 100, TN = 100, FP = 0, FN = 0 (questi sono valori specifici estratti dalla matrice, che possono variare in base all'esecuzione).
     ◦ Ratio True/False: Il rapporto tra predizioni corrette (True) e predizioni errate (False) è stato calcolato come 67% (dato da (True Positives + True Negatives) / Totale).
     
-**2. Decision Tree
-**
+**2. Decision Tree**
+
 • Un modello DecisionTreeClassifier è stato addestrato per la classificazione della qualità delle mele.
 • Analisi dei Criteri di Suddivisione (criterion): Sono stati testati i criteri 'gini' ed 'entropy' per la suddivisione dei rami.
     ◦ Conclusione: Nel caso specifico, il criterio entropy ha offerto le migliori performance.
@@ -130,8 +130,8 @@ Per un problema di classificazione, è stato introdotto un nuovo dataset: apple_
     
 • Feature Importance: Sono state calcolate e stampate le importanze delle feature, indicando quali caratteristiche delle mele sono state più rilevanti per il modello Decision Tree nella classificazione.
 
-**🧩 K-Means Clustering
-**
+**🧩 K-Means Clustering**
+
 Questa sezione esplora l'algoritmo di clustering non supervisionato K-Means.
 1. Preparazione del Dataset: La label 'Quality' viene rimossa dal dataset classification_dataset per creare clustering_dataset, poiché K-Means non utilizza la label.
 
@@ -148,8 +148,8 @@ Questa sezione esplora l'algoritmo di clustering non supervisionato K-Means.
     ◦ Anche qui, una nuova colonna 'Cluster' viene aggiunta.
     ◦ Effettuando una predizione, il modello può ora classificare una mela come "buona", "cattiva" o "di qualità intermedia".
 
-**⏳ Analisi delle Serie Temporali
-**
+**⏳ Analisi delle Serie Temporali**
+
 L'ultima parte del progetto si concentra sulle serie temporali, utilizzando nuovamente il dataset originale regression_raw_dataset. L'obiettivo è analizzare come il gross income evolve nel tempo.
 1. Creazione del Dataset Time Series: Viene creato un nuovo dataset, timeseries_dataset, contenente solo le colonne 'Date' e 'gross income'.
 
