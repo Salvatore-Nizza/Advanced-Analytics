@@ -7,16 +7,27 @@ Questo repository contiene il notebook del progetto sviluppato nell'ambito del C
 Il progetto fa uso delle seguenti librerie Python, essenziali per la manipolazione dei dati, l'analisi statistica, la visualizzazione e la costruzione di modelli di Machine Learning:
 
 • numpy per operazioni numeriche e calcoli statistici.
+
 • pandas per la manipolazione e l'analisi dei dati tabellari.
+
 • scipy (in particolare scipy.stats) per calcoli statistici come la moda e la skewness.
+
 • matplotlib.pyplot per la visualizzazione dei dati.
+
 • google.colab.drive per l'accesso a Google Drive (se il notebook viene eseguito su Google Colab).
+
 • sklearn.preprocessing (LabelEncoder, StandardScaler, PolynomialFeatures) per la pre-elaborazione dei dati e la creazione di feature polinomiali.
+
 • sklearn.model_selection (train_test_split) per la suddivisione del dataset in set di training e test.
+
 • sklearn.linear_model (LinearRegression, LogisticRegression) per l'implementazione dei modelli di regressione lineare e logistica.
+
 • sklearn.metrics (mean_squared_error, mean_absolute_error, r2_score, classification_report, f1_score, confusion_matrix) per la valutazione delle performance dei modelli.
+
 • sklearn.tree (DecisionTreeClassifier) per l'implementazione del modello ad albero decisionale.
+
 • sklearn.cluster (KMeans) per l'implementazione dell'algoritmo di clustering K-Means.
+
 • seaborn per la visualizzazione avanzata (es. heatmap per la confusion matrix).
 
 **📊 Esplorazione del Dataset e Pre-elaborazione (Supermarket Sales)**
@@ -26,12 +37,19 @@ Il primo dataset utilizzato è supermarket_sales.csv, che contiene dati sulle ve
 2. **Metadati e Pulizia:**
     ◦ Viene ispezionato il tipo di dato e l'assenza di valori nulli.
     ◦ Colonne ritenute poco utili per l'analisi predittiva, come 'Invoice ID', 'Tax 5%', 'Total', 'Date', 'Time', 'cogs', 'gross margin percentage', vengono rimosse.
-📈 Analisi Statistica Descrittiva
+
+**📈 Analisi Statistica Descrittiva**
+
 Per la colonna Rating, che è la variabile target (label) per la predizione, sono state calcolate le seguenti statistiche:
+
 • Media del Rating: 6.78.
+
 • Mediana del Rating: 6.8.
+
 • Moda del Rating: Modalità(5.9) Frequenza(73).
+
 • Deviazione Standard del Rating: 1.72.
+
 La distribuzione dei rating è risultata essere più o meno uniforme e senza skewness.
 In contrasto, la colonna gross income (utile lordo) mostra una significativa skewness, con la maggioranza degli ordini che presentano un basso reddito lordo. Il valore esatto della skewness per gross income è 0.95.
 🛠️ Feature Engineering
