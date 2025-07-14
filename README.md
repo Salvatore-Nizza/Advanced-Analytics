@@ -22,7 +22,7 @@ Il progetto fa uso delle seguenti librerie Python, essenziali per la manipolazio
 **📊 Esplorazione del Dataset e Pre-elaborazione (Supermarket Sales)**
 
 Il primo dataset utilizzato è supermarket_sales.csv, che contiene dati sulle vendite di un supermercato.
-1.** Caricamento e Ispezione Iniziale:** Il dataset viene caricato e le prime 100 occorrenze vengono visualizzate per una comprensione intuitiva dei dati.
+1. **Caricamento e Ispezione Iniziale:** Il dataset viene caricato e le prime 100 occorrenze vengono visualizzate per una comprensione intuitiva dei dati.
 2. **Metadati e Pulizia:**
     ◦ Viene ispezionato il tipo di dato e l'assenza di valori nulli.
     ◦ Colonne ritenute poco utili per l'analisi predittiva, come 'Invoice ID', 'Tax 5%', 'Total', 'Date', 'Time', 'cogs', 'gross margin percentage', vengono rimosse.
