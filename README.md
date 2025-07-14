@@ -1,7 +1,8 @@
-**Progetto Advanced Analytics | start2impact University
+**Progetto Advanced Analytics | start2impact University**
+
 Questo repository contiene il notebook del progetto sviluppato nell'ambito del Corso Advanced Analytics di start2impact University. Il progetto esplora diverse tecniche di analisi dei dati e di machine learning, spaziando dalla regressione alla classificazione, fino all'apprendimento non supervisionato e all'analisi delle serie temporali.
 
-📚 **Librerie Principali Utilizzate**
+**📚 Librerie Principali Utilizzate**
 
 Il progetto fa uso delle seguenti librerie Python, essenziali per la manipolazione dei dati, l'analisi statistica, la visualizzazione e la costruzione di modelli di Machine Learning:
 
@@ -17,10 +18,12 @@ Il progetto fa uso delle seguenti librerie Python, essenziali per la manipolazio
 • sklearn.tree (DecisionTreeClassifier) per l'implementazione del modello ad albero decisionale.
 • sklearn.cluster (KMeans) per l'implementazione dell'algoritmo di clustering K-Means.
 • seaborn per la visualizzazione avanzata (es. heatmap per la confusion matrix).
-📊 Esplorazione del Dataset e Pre-elaborazione (Supermarket Sales)
+
+**📊 Esplorazione del Dataset e Pre-elaborazione (Supermarket Sales)**
+
 Il primo dataset utilizzato è supermarket_sales.csv, che contiene dati sulle vendite di un supermercato.
-1. Caricamento e Ispezione Iniziale: Il dataset viene caricato e le prime 100 occorrenze vengono visualizzate per una comprensione intuitiva dei dati.
-2. Metadati e Pulizia:
+1.** Caricamento e Ispezione Iniziale:** Il dataset viene caricato e le prime 100 occorrenze vengono visualizzate per una comprensione intuitiva dei dati.
+2. **Metadati e Pulizia:**
     ◦ Viene ispezionato il tipo di dato e l'assenza di valori nulli.
     ◦ Colonne ritenute poco utili per l'analisi predittiva, come 'Invoice ID', 'Tax 5%', 'Total', 'Date', 'Time', 'cogs', 'gross margin percentage', vengono rimosse.
 📈 Analisi Statistica Descrittiva
