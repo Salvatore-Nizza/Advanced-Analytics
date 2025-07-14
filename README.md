@@ -52,73 +52,107 @@ Per la colonna Rating, che è la variabile target (label) per la predizione, son
 
 La distribuzione dei rating è risultata essere più o meno uniforme e senza skewness.
 In contrasto, la colonna gross income (utile lordo) mostra una significativa skewness, con la maggioranza degli ordini che presentano un basso reddito lordo. Il valore esatto della skewness per gross income è 0.95.
+
 🛠️ Feature Engineering
+
 Per preparare i dati ai modelli di machine learning, sono state applicate le seguenti tecniche:
 1. Encoding delle Variabili Categoriche: Colonne come 'Branch', 'City', 'Customer type', 'Gender', 'Product line' e 'Payment' sono state trasformate da categoriche a numeriche utilizzando LabelEncoder. Questo è fondamentale poiché gli algoritmi di machine learning richiedono input numerici.
     ◦ Viene mostrata la mappatura dei valori originali ai valori codificati per ciascuna colonna.
 2. Feature Scaling (Standardizzazione): Le colonne 'Unit price' e 'gross income' sono state standardizzate utilizzando StandardScaler. Questa operazione aiuta a migliorare le performance dei modelli, specialmente per 'gross income' che presentava una forte skewness. La standardizzazione viene verificata controllando che la media delle colonne sia prossima a 0 e la deviazione standard a 1.
+
 🧪 Training e Valutazione dei Modelli di Regressione
+
 Il dataset pre-processato viene diviso in set di training (80%) e test (20%) per la valutazione dei modelli di regressione, con Rating come variabile target.
 1. Regressione Lineare
+
 • Un modello di LinearRegression è stato addestrato per predire i Rating.
+
 • Metriche di Valutazione:
     ◦ Mean Squared Error (MSE): 2.97.
     ◦ Mean Absolute Error (MAE): 1.35.
     ◦ R2-score: -0.0003.
+    
 • Conclusione: L'R2-score estremamente basso indica che il modello lineare è peggiore rispetto a una semplice media dei valori, suggerendo che un modello lineare non cattura adeguatamente la relazione nei dati.
-2. Regressione Polinomiale
+
+4. Regressione Polinomiale
+
 • È stata tentata una PolynomialRegression per migliorare le performance, inizialmente con un grado del polinomio pari a 2.
+
 • Metriche di Valutazione (Grado 2):
     ◦ MSE: 2.99.
     ◦ MAE: 1.36.
     ◦ R2-score: -0.0080.
+    
 • Conclusione (Grado 2): Le performance sono peggiorate rispetto alla regressione lineare semplice.
+
 • Esperimenti con Gradi Maggiori: Sono stati testati gradi del polinomio da 3 a 5.
     ◦ Grado 3: MSE = 3.01, MAE = 1.37, R2 = -0.0093.
     ◦ Grado 4: MSE = 3.03, MAE = 1.37, R2 = -0.0175.
     ◦ Grado 5: MSE = 3.03, MAE = 1.37, R2 = -0.0175.
+    
 • Spiegazione del Peggioramento: L'aumento del grado del polinomio non ha portato a miglioramenti, anzi, le performance sono peggiorate. Questo suggerisce che la causa potrebbe essere l'overfitting dei dati, probabilmente dovuto a un dataset dimensionalmente limitato (con pochi dati), il che comporta una ridotta capacità di generalizzazione del modello. Non sono stati riscontrati outlier significativi che possano giustificare il peggioramento delle performance.
+
 🍎 Classificazione della Qualità delle Mele
+
 Per un problema di classificazione, è stato introdotto un nuovo dataset: apple_quality.csv. L'obiettivo è classificare la qualità delle mele.
+
 1. Caricamento e Pulizia: Il dataset viene caricato. Viene rimossa l'ultima riga, che presentava valori nulli.
+
 2. Encoding della Label: La colonna 'Quality', che è la label categorica, viene encodata numericamente utilizzando LabelEncoder ('Good' e 'Bad' vengono mappate).
+
 3. Train/Test Split: Il dataset viene nuovamente diviso in training (80%) e test (20%).
+
 1. Regressione Logistica
+
 • Un modello LogisticRegression è stato addestrato per la classificazione della qualità delle mele.
+
 • Metrica Iniziale (F1-score): L'obiettivo è superare un F1-score di 0.80, massimizzando precision e recall.
+
 • Ottimizzazione del Threshold: È stato cercato il miglior threshold per la probabilità di predizione (predict_proba) per massimizzare l'F1-score.
     ◦ Miglior Threshold Trovato: 0.49.
     ◦ Miglior F1-score (media ponderata): 0.80.
     ◦ Analisi delle Metriche dopo Thresholding: Si è notato che l'F1-score sulla label '1' (qualità buona) migliora a scapito dell'altra label, mentre le medie 'macro avg' e 'weighted avg' per F1-score e recall rimangono invariate. La precision migliora sulla label '2' a discapito dell'altra, e le medie 'macro avg' e 'weighted avg' per la precision migliorano.
+    
 • Confusion Matrix (Regressione Logistica):
     ◦ Visualizzata per comprendere le performance del modello.
     ◦ Esempio di valori estratti: TP = 100, TN = 100, FP = 0, FN = 0 (questi sono valori specifici estratti dalla matrice, che possono variare in base all'esecuzione).
     ◦ Ratio True/False: Il rapporto tra predizioni corrette (True) e predizioni errate (False) è stato calcolato come 67% (dato da (True Positives + True Negatives) / Totale).
-2. Decision Tree
+    
+4. Decision Tree
+
 • Un modello DecisionTreeClassifier è stato addestrato per la classificazione della qualità delle mele.
 • Analisi dei Criteri di Suddivisione (criterion): Sono stati testati i criteri 'gini' ed 'entropy' per la suddivisione dei rami.
     ◦ Conclusione: Nel caso specifico, il criterio entropy ha offerto le migliori performance.
+    
 • Confusion Matrix (Decision Tree):
     ◦ Visualizzata per comprendere le performance.
     ◦ Conclusione sul Confronto: Con il Decision Tree, ci sono stati meno errori rispetto alla Logistic Regression, e il rapporto tra predizioni corrette e errate è risultato maggiore (71% vs 67%), indicando una migliore performance.
+    
 • Feature Importance: Sono state calcolate e stampate le importanze delle feature, indicando quali caratteristiche delle mele sono state più rilevanti per il modello Decision Tree nella classificazione.
+
 🧩 K-Means Clustering
+
 Questa sezione esplora l'algoritmo di clustering non supervisionato K-Means.
 1. Preparazione del Dataset: La label 'Quality' viene rimossa dal dataset classification_dataset per creare clustering_dataset, poiché K-Means non utilizza la label.
+
 2. Clustering con n_clusters=2:
     ◦ Il modello KMeans è stato addestrato con due cluster, assumendo che le mele siano "buone" o "cattive".
     ◦ Vengono visualizzati i centroidi dei cluster.
     ◦ Una nuova colonna 'Cluster' viene aggiunta al dataset, indicando a quale cluster è stata assegnata ciascuna mela.
     ◦ È possibile effettuare una predizione per una mela specifica (data in input tramite ID), che indicherà se è "buona" o "cattiva".
+
 3. Clustering con n_clusters=3:
     ◦ Viene esplorato lo scenario con tre cluster per verificare la possibilità di una qualità intermedia.
     ◦ Il modello KMeans viene addestrato con tre cluster.
     ◦ Vengono visualizzati i centroidi dei cluster.
     ◦ Anche qui, una nuova colonna 'Cluster' viene aggiunta.
     ◦ Effettuando una predizione, il modello può ora classificare una mela come "buona", "cattiva" o "di qualità intermedia".
+
 ⏳ Analisi delle Serie Temporali
+
 L'ultima parte del progetto si concentra sulle serie temporali, utilizzando nuovamente il dataset originale regression_raw_dataset. L'obiettivo è analizzare come il gross income evolve nel tempo.
 1. Creazione del Dataset Time Series: Viene creato un nuovo dataset, timeseries_dataset, contenente solo le colonne 'Date' e 'gross income'.
+
 2. Regressione Lineare su Serie Temporali:
     ◦ La colonna 'Date' viene convertita in formato datetime e suddivisa in feature numeriche 'Day', 'Month', 'Year' per essere utilizzata nel modello.
     ◦ Il dataset viene diviso in training (80%) e test (20%).
