@@ -1,7 +1,10 @@
-Progetto Advanced Analytics | start2impact University
+**Progetto Advanced Analytics | start2impact University
 Questo repository contiene il notebook del progetto sviluppato nell'ambito del Corso Advanced Analytics di start2impact University. Il progetto esplora diverse tecniche di analisi dei dati e di machine learning, spaziando dalla regressione alla classificazione, fino all'apprendimento non supervisionato e all'analisi delle serie temporali.
-📚 Librerie Principali Utilizzate
+
+📚 **Librerie Principali Utilizzate**
+
 Il progetto fa uso delle seguenti librerie Python, essenziali per la manipolazione dei dati, l'analisi statistica, la visualizzazione e la costruzione di modelli di Machine Learning:
+
 • numpy per operazioni numeriche e calcoli statistici.
 • pandas per la manipolazione e l'analisi dei dati tabellari.
 • scipy (in particolare scipy.stats) per calcoli statistici come la moda e la skewness.
